@@ -1,5 +1,7 @@
 package com.algorithms.sorting.insertsort;
 
+import com.algorithms.misc.StringUtils;
+
 public class InsertionSort {
 	
 	public void sort(int A[]) {
@@ -18,8 +20,8 @@ public class InsertionSort {
 			}
 			
 		}
+		StringUtils.displayArray(A);
 		
-		displayArray(A);
 	}
 	
 	private void swap(int A[], int firstLoc, int secondLoc) {
@@ -28,11 +30,4 @@ public class InsertionSort {
 		A[secondLoc] = temp;
 	}
 	
-	private static void displayArray(int A[]) {
-		StringBuilder sb = new StringBuilder();
-		for (int i = 0; i < A.length; i++) {
-			sb.append(A[i]).append(",");
-		}
-		System.out.println(sb.toString());
-	}
 }
