@@ -1,4 +1,4 @@
-package com.algorithms.sorting.test;
+package com.algorithms.test;
 
 import com.algorithms.sorting.InsertionSort;
 
