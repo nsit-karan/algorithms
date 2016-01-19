@@ -1,4 +1,4 @@
-package com.algorithms.sorting.insertsort;
+package com.algorithms.sorting;
 
 import com.algorithms.misc.StringUtils;
 

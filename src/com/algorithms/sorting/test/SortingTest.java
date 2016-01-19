@@ -1,6 +1,6 @@
 package com.algorithms.sorting.test;
 
-import com.algorithms.sorting.insertsort.InsertionSort;
+import com.algorithms.sorting.InsertionSort;
 
 public class SortingTest {
 
