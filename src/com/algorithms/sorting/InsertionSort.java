@@ -20,7 +20,7 @@ public class InsertionSort {
 			}
 			
 		}
-		StringUtils.displayArray(A);
+		StringUtils.displayArray(A, "array after sorting");
 		
 	}
 	

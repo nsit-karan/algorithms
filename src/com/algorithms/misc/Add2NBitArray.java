@@ -118,7 +118,7 @@ public class Add2NBitArray {
 		int B[] = new int[]{1,1,1,1};
 		int C[] = a.add2Arrays(A, B);
 		
-		StringUtils.displayArray(C);
+		StringUtils.displayArray(C, "resultant array after sum");
 	}
 
 }

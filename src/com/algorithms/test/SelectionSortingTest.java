@@ -12,7 +12,7 @@ public class SelectionSortingTest {
 			SelectionSort sort = new SelectionSort();
 			sort.sort(A);
 			
-			StringUtils.displayArray(A);
+			StringUtils.displayArray(A, "Array after sorting");
 		} catch (Exception e) {
 			System.out.println(e);
 		}
