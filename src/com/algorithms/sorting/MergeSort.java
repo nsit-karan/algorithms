@@ -22,6 +22,12 @@ public class MergeSort {
 		}
 	}
 	
+	
+	/*
+	 * The array is of the form:
+	 * - first sub array is from A[p...q]
+	 * - second sub array is from A[q + 1 .... r]
+	 */
 	public void merge(int A[], int p, int q, int r) {
 		
 		int n1 = q - p + 1;

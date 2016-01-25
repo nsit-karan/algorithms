@@ -2,6 +2,9 @@ package com.algorithms.misc;
 
 public class StringUtils {
 
+	/*
+	 * TODO : convert to use generics
+	 */
 	public static void displayArray(int A[], String logger) {
 		StringBuilder sb = new StringBuilder(logger).append(" : ");
 		for (int i = 0; i < A.length; i++) {
