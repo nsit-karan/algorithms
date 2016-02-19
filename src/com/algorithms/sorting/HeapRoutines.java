@@ -16,7 +16,7 @@ public class HeapRoutines {
 		Integer heap_array[];
 		Integer heap_size;
 
-		public Heap(int A[]) {
+		public Heap(Integer A[]) {
 			this.heap_array = new Integer[A.length];
 			this.heap_size = 0;
 			
@@ -56,15 +56,13 @@ public class HeapRoutines {
 		int right = heap.getRightIndex(index);
 		int largest = 0;
 		
-		
-		
-		if (left <= heap.heap_size && (heap.heap_array)[left] > (heap.heap_array)[index]) {
+		if (left < heap.heap_size && (heap.heap_array)[left] > (heap.heap_array)[index]) {
 			largest = left;
 		} else {
 			largest = index;
 		}
 		
-		if (right <= heap.heap_size && (heap.heap_array)[right] > (heap.heap_array)[largest]) {
+		if (right < heap.heap_size && (heap.heap_array)[right] > (heap.heap_array)[largest]) {
 			largest = right;
 		}
 		
@@ -80,10 +78,20 @@ public class HeapRoutines {
 	}
 	
 	public void buildMaxHeap(Heap h) {
-		h.heap_size = h.heap_array.length - 1;
+		h.heap_size = h.heap_array.length;
 		
 		for (int i = h.heap_array.length / 2; i >= 0; i--) {
 			maxHeapify(h, i);
+		}
+	}
+	
+	public void heapSort(Heap h) {
+		buildMaxHeap(h);
+		
+		for (int i = h.heap_size - 1; i > 0; i--) {
+			Utils.swap(h.heap_array, 0, i);
+			h.heap_size = h.heap_size - 1;
+			maxHeapify(h, 0);
 		}
 	}
 
@@ -92,12 +100,16 @@ public class HeapRoutines {
 	 */
 	public static void main(String[] args) {
 		
-		Heap h = new Heap(new int[] {4, 1, 3, 2, 16, 9, 10});
+		Heap h = new Heap(new Integer[] {4, 1, 3, 2, 16, 9, 10});
 		
 		StringUtils.displayArray(h.heap_array, "Heap before heapify is called");
 		HeapRoutines heapRoutines = new HeapRoutines();
 		heapRoutines.buildMaxHeap(h);
 		StringUtils.displayArray(h.heap_array, "Heap after heapify is called");
+		
+		heapRoutines.heapSort(h);
+		StringUtils.displayArray(h.heap_array, "Heap after heap sort");
+		
 	}
 
 }

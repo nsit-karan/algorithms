@@ -5,10 +5,10 @@ import com.algorithms.misc.Utils;
 
 public class BubbleSort {
 
-	public void sort(int A[]) {
+	public void sort(Integer A[]) {
 		
-		for (int i = 0; i < A.length; i++) {
-			for (int j = A.length - 1; j > i; j--) {
+		for (Integer i = 0; i < A.length; i++) {
+			for (Integer j = A.length - 1; j > i; j--) {
 				if (A[j] < A[j - 1]) {
 					Utils.swap(A, j, j - 1);
 				}
@@ -21,7 +21,7 @@ public class BubbleSort {
 	 */
 	public static void main(String[] args) {
 		
-		int A[] = new int[] {1, 100, 50, 40, 200, 800, 500, 400};
+		Integer A[] = new Integer[] {1, 100, 50, 40, 200, 800, 500, 400};
 		BubbleSort b = new BubbleSort();
 		b.sort(A);
 		StringUtils.displayArray(A, "bubble soreted array");
