@@ -12,6 +12,15 @@ public class StringUtils {
 		}
 		System.out.println(sb.toString());
 	}
+	
+	public static <T> void displayArray(T A[], String logger) {
+		StringBuilder sb = new StringBuilder(logger).append(" : ");
+		
+		for (T t : A) {
+			sb.append(t).append(",");
+		}
+		System.out.println(sb.toString() + "\n");
+	}
 
 
 }
