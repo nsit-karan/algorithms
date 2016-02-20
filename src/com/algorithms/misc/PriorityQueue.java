@@ -65,6 +65,21 @@ public class PriorityQueue {
 		increaseKey(heap.heap_size - 1, key);
 	}
 	
+	/*
+	 * - initialize heap[index] = heap[last_element]
+	 * - reduce heap size by 1
+	 * - call heapify again
+	 */
+	public void deleteElement(Integer index) {
+		
+		Integer last_element = heap.heap_array.get(heap.heap_size - 1);
+		heap.heap_array.set(index, last_element);
+		heap.heap_array.remove(heap.heap_size - 1);
+		heap.heap_size = heap.heap_size - 1;
+		
+		new HeapRoutines().maxHeapify(heap, index);
+	}
+	
 	/**
 	 * @param args
 	 */
@@ -87,6 +102,9 @@ public class PriorityQueue {
 		
 		pq.insertElement(12);
 		StringUtils.displayArray(h.heap_array, "Heap after inserting new element with value 12");
+		
+		pq.deleteElement(0);
+		StringUtils.displayArray(h.heap_array, "Heap after deleting element at index 0");
 	}
 
 }

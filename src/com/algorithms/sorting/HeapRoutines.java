@@ -34,6 +34,12 @@ public class HeapRoutines {
 			}
 		}
 		
+		/*
+		 * Since index is starting from 2, diff from the straightforward impls:
+		 * - 2i
+		 * - 2i + 1
+		 * - i/2
+		 */
 		public Integer getParentIndex(Integer index) {
 			return ((index + 1)/ 2) - 1;
 		}
