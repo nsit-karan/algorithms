@@ -1,18 +1,14 @@
 package com.algorithms.sorting;
 
-import java.util.ArrayList;
-
 import com.algorithms.misc.StringUtils;
 import com.algorithms.misc.Utils;
 
-
 /*
- * Heap routines using array list.
- * Easier to insert/delete elements in the heap dynamically
- * without having to manage the memory yourself in case a
- * array was used
+ * In case there is a use case to insert elements to the heap,
+ * it is tedious to reallocate the memory yourself if using
+ * array as the underlying DS
  */
-public class HeapRoutines {
+public class HeapRoutinesUsingArray {
 	
 	/*
 	 * Keeping all the members public to avoid (get/set)ers
@@ -22,20 +18,22 @@ public class HeapRoutines {
 	 */
 	public static class Heap {
 		
-		public ArrayList<Integer> heap_array;
+		public Integer heap_array[];
 		public Integer heap_size;
 		
 		public Heap(Integer A[]) {
-			this.heap_array = new ArrayList<Integer>();
+			this.heap_array = new Integer[A.length];
 			this.heap_size = 0;
 			
+			int count = 0;
 			for (int i : A) {
-				heap_array.add(i);
+				heap_array[count] = i;
+				count++;
 			}
 		}
 		
 		public Integer getParentIndex(Integer index) {
-			return ((index + 1)/ 2) - 1;
+			return index / 2;
 		}
 		
 		public Integer getLeftIndex(Integer index) {
@@ -63,13 +61,13 @@ public class HeapRoutines {
 		int right = heap.getRightIndex(index);
 		int largest = 0;
 		
-		if (left < heap.heap_size && heap.heap_array.get(left) > heap.heap_array.get(index)) {
+		if (left < heap.heap_size && (heap.heap_array)[left] > (heap.heap_array)[index]) {
 			largest = left;
 		} else {
 			largest = index;
 		}
 		
-		if (right < heap.heap_size && heap.heap_array.get(right) > heap.heap_array.get(largest)) {
+		if (right < heap.heap_size && (heap.heap_array)[right] > (heap.heap_array)[largest]) {
 			largest = right;
 		}
 		
@@ -85,7 +83,7 @@ public class HeapRoutines {
 	}
 	
 	public void buildMaxHeap(Heap h) {
-		h.heap_size = h.heap_array.size();
+		h.heap_size = h.heap_array.length;
 		
 		for (int i = h.heap_size / 2; i >= 0; i--) {
 			maxHeapify(h, i);
@@ -110,7 +108,7 @@ public class HeapRoutines {
 		Heap h = new Heap(new Integer[] {4, 1, 3, 2, 16, 9, 10});
 		
 		StringUtils.displayArray(h.heap_array, "Heap before heapify is called");
-		HeapRoutines heapRoutines = new HeapRoutines();
+		HeapRoutinesUsingArray heapRoutines = new HeapRoutinesUsingArray();
 		heapRoutines.buildMaxHeap(h);
 		StringUtils.displayArray(h.heap_array, "Heap after heapify is called");
 		

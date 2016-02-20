@@ -1,5 +1,7 @@
 package com.algorithms.misc;
 
+import java.util.List;
+
 public class StringUtils {
 
 	/*
@@ -21,6 +23,16 @@ public class StringUtils {
 		}
 		System.out.println(sb.toString() + "\n");
 	}
+	
+	public static <T> void displayArray(List<T> A, String logger) {
+		StringBuilder sb = new StringBuilder(logger).append(" : ");
+		
+		for (T t : A) {
+			sb.append(t).append(",");
+		}
+		System.out.println(sb.toString() + "\n");
+	}
+
 
 
 }
