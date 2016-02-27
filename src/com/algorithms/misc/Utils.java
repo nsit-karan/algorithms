@@ -13,6 +13,13 @@ public class Utils {
 		A[j] = temp;
 	}
 	
+	public static void swap(int A[], int i, int j) {
+		int temp = A[i];
+		A[i] = A[j];
+		A[j] = temp;
+	}
+	
+	
 	/*
 	 * readibility suffers if using array list.
 	 * But, get the advantage of size changes taken care of instead
