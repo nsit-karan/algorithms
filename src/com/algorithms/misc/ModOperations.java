@@ -4,6 +4,15 @@
 
 package com.algorithms.misc;
 
+/*
+ * General strategy:
+ * - check if a no is k more than a multiple of a m, then:
+ *   n mod m should be within the range 0 to k
+ * 
+ * - check if no is k less than a multiple of m, then:
+ *   n + i where i is from 1 to k should be a multiple of m
+ *   (n + i) % m should be 0 where i goes from 0 to k
+ */
 public class ModOperations {
 	
 	public boolean multiple3_or_5(int n) {
@@ -48,7 +57,35 @@ public class ModOperations {
 		}
 		return false;
 	}
+
+	/*
+	 * given no 'n' is 1 or 2 less than a multiple of 20.
+	 * This implies that, (n + 1) or (n + 2) need to be multiple of 20.
+	 */
+	public boolean less20(int n) {
+		if ((n + 1) % 20 == 0 || (n + 2) % 20 == 0) {
+			return true;
+		}
+		return false;
+	}
 	
+	/*
+	 * return true if the no is withing 2 of a multiple of 10.
+	 * imples:
+	 * - 2+ and 2- will do.
+	 * 
+	 */
+	public boolean nearTen(int num) {
+		  if (num % 10 == 0
+				  || num % 10 == 1
+				  || num % 10 == 2
+				  || (num + 1) % 10 == 0
+				  || (num + 2) % 10 == 0) {
+		      return true;
+		  }
+		  return false;
+		}
+
 	/**
 	 * @param args
 	 */
