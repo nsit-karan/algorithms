@@ -16,6 +16,8 @@ import com.google.common.collect.Queues;
  *   which was pushed
  *   Now, the role of Q1 and Q2 is reversed since Q2 has the elements and Q1
  *   is empty
+ *   
+ *   TODO : provide alternate approach where insertion is O(n) and deletion is O(1)
  */
 public class StackUsingQueue {
 	
