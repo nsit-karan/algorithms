@@ -1,5 +1,9 @@
 package com.algorithms.datastructures.linkedlist;
 
+/*
+ * Stack using linked list:
+ *   - push-->insert / pop-->delete
+ */
 public class SingleLinkedList {
 	
 	Node head;
@@ -11,7 +15,7 @@ public class SingleLinkedList {
 	 * Special case:
 	 * - initiliaze tail to 'u' if tail was uninitialized
 	 */
-	public void insert(int x) {
+	public void push(int x) {
 		Node new_node = new Node(x);
 		new_node.next = head;
 		head = new_node;
@@ -29,7 +33,7 @@ public class SingleLinkedList {
 	 *    - head = head.next takes care of making head null
 	 *    - tail needs to be set to null if head becomes null
 	 */
-	public int delete() {
+	public int pop() {
 		if (head == null) {
 			throw new RuntimeException("Empty list");
 		}
@@ -43,6 +47,67 @@ public class SingleLinkedList {
 		return x;
 	}
 	
+	/*
+	 * Insertions are done at the end of the list
+	 * Corner case: If head/tail is null, then initialize both to
+	 * the new element
+	 */
+	public void insert(int x) {
+		if (head == null) {
+			head = tail = new Node(x);
+		} else {
+			Node n = new Node(x);
+			tail.next = n;
+			tail = n;
+		}
+	}
+	
+	/*
+	 * Delete from the tail of the list
+	 * For this, need to iterate till i.next.next != null.
+	 * 
+	 * The above condition makes sure that once the loop ends,
+	 * the iter is at 1 node before the tail.
+	 * 
+	 * For instance:
+	 * |a|->|b|->|c|->|d|->|e|
+	 * In the above, once the loop ends, iter holds reference to |d|.
+	 * So, tail is reset to refer to |d| and
+	 * iter.next is set to null
+	 * 
+	 * Using the above reference, the last element can be deleted
+	 * 
+	 * Edge condition:
+	 * - in case only 1 element is there, first check whether head.next == null.
+	 *   If that is the case, then only 1 element
+	 * - in case 1 elements, head == null, no-op  
+	 */
+	public int delete() {
+		if (isEmpty()) {
+			throw new RuntimeException("List empty : no element to delete");
+		} else if (head.next == null) {
+			/*
+			 * Only 1 element exists
+			 */
+			int x = head.x;
+			head = tail = null;
+			return x;
+		} else {
+			Node iter = head;
+			while (iter.next.next != null) {
+				iter = iter.next;
+			}
+			int x = iter.next.x;
+			iter.next = null;
+			tail = iter;
+			return x;
+		}
+	}
+	
+	public boolean isEmpty() {
+		return head == null ? true : false;
+	}
+	
 	public void displayList(String loggerString) {
 		StringBuilder sb = new StringBuilder(loggerString).append(" : ");
 		Node iter = head;
@@ -54,18 +119,32 @@ public class SingleLinkedList {
 		/*
 		 * strip off the trailing extra '->'
 		 */
-		sb.delete(sb.toString().length() - 4, sb.toString().length());
+		if (!isEmpty()) {
+			sb.delete(sb.toString().length() - 4, sb.toString().length());
+		}
 		System.out.println(sb.toString());
 	}
 
 	public static void main(String[] args) {
 		SingleLinkedList sl = new SingleLinkedList();
-		sl.insert(1);
-		sl.insert(2);
-		sl.insert(3);
+		sl.push(1);
+		sl.push(2);
+		sl.push(3);
 		
 		sl.displayList("sl");		
-		System.out.printf("Element deleted : %d\n", sl.delete());
+		System.out.printf("Element deleted : %d\n", sl.pop());
+		sl.displayList("sl");
+		sl.pop();
+		sl.pop();
+		sl.displayList("sl");
+		
+		sl.insert(10);
+		sl.insert(20);
+		sl.insert(30);
+		sl.displayList("sl");
+		
+		sl.delete();
+		sl.delete();
 		sl.displayList("sl");
 
 	}
