@@ -1,7 +1,5 @@
 package com.algorithms.courses.algotoolbox.week1;
 
-import java.util.Scanner;
-
 import java.util.*;
 import java.io.*;
 
