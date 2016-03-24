@@ -18,4 +18,8 @@ public class Node {
 	public Node(int x) {
 		this.x = x;
 	}
+
+	public Node() {
+	}	
+	
 }
