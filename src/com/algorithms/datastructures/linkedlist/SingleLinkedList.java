@@ -9,7 +9,7 @@ public class SingleLinkedList {
 	Node head;
 	Node tail;
 	
-	/*
+	/**
 	 * Inserts an element at the head of the list
 	 * 
 	 * Special case:
@@ -25,7 +25,7 @@ public class SingleLinkedList {
 		}
 	}
 	
-	/*
+	/**
 	 * Delete the head and update head
 	 * Boundary conditions:
 	 * - list empty
@@ -47,7 +47,7 @@ public class SingleLinkedList {
 		return x;
 	}
 	
-	/*
+	/**
 	 * Insertions are done at the end of the list
 	 * Corner case: If head/tail is null, then initialize both to
 	 * the new element
@@ -62,7 +62,7 @@ public class SingleLinkedList {
 		}
 	}
 	
-	/*
+	/**
 	 * Delete from the tail of the list
 	 * For this, need to iterate till i.next.next != null.
 	 * 
@@ -104,6 +104,20 @@ public class SingleLinkedList {
 		}
 	}
 	
+	public int size() {
+		if (isEmpty()) {
+			return 0;
+		}
+		
+		int count = 0;
+		Node iter = this.head;
+		while (iter != null) {
+			iter = iter.next;
+			count++;
+		}
+		return count;
+	}
+	
 	public boolean isEmpty() {
 		return head == null ? true : false;
 	}
@@ -122,9 +136,20 @@ public class SingleLinkedList {
 		if (!isEmpty()) {
 			sb.delete(sb.toString().length() - 4, sb.toString().length());
 		}
-		System.out.println(sb.toString());
+		System.out.printf("%s | (size = %d)\n", sb.toString(), this.size());
 	}
 
+	/*
+	 * Expected O/P:
+	 * 
+	 * sl : 3 -> 2 -> 1 | (size = 3)
+	 * Element deleted : 3
+	 * sl : 2 -> 1 | (size = 2)
+	 * sl :  | (size = 0)
+	 * sl : 10 -> 20 -> 30 | (size = 3)
+	 * sl : 10 | (size = 1)
+	 * 
+	 */
 	public static void main(String[] args) {
 		SingleLinkedList sl = new SingleLinkedList();
 		sl.push(1);
