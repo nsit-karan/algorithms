@@ -18,6 +18,14 @@ public class DoublyLinkedList {
 	
 	Node dummy;
 	
+	/*
+	 * Head and tail are really not needed since
+	 * head is dummy.next
+	 * tail is dumy.prev
+	 */
+	Node head;
+	Node tail;
+	
 	public DoublyLinkedList() {
 		dummy = new Node();
 		dummy.next = dummy;
