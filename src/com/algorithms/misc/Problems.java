@@ -16,5 +16,16 @@ package com.algorithms.misc;
  *
  */
 public class Problems {
+	
+	/**
+	 * How do we calculate the volume of an irregular object, say a light bulb or a wierdly shaped earthen
+	 * pot?
+	 * 
+	 * Sn: Use the archiemedes way !!
+	 * Fill the object with water and empty out the water into a cubical box.
+	 * The volume will be thus : lenght*breadth*height_water
+	 * 
+	 */
+	void calculateVolume() {}
 
 }
