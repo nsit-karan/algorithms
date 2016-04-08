@@ -26,9 +26,7 @@ public class StringOperations {
 		StringOperations so = new StringOperations();
 		
 		char[] rev_string = so.reverseString(s.toCharArray());
-		for (char c : rev_string) {
-			System.out.println(c);
-		}
+		System.out.println(rev_string);
 	}
 
 }
