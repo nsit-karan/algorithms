@@ -22,6 +22,14 @@ public class RotateArray {
 		}
 	}
 	
+	/*
+	 * Another alternate solution is:
+	 * 
+	 * Consier the array split into 2 parts around the n_count: A_left, A_right
+	 * Reverse the 2 sub arrays : A_left_rev, A_right_rev
+	 * Now, reverse the complete array : (A_left_rev, A_right_rev)_rev which results in:
+	 * A_right, A_left which was the desired array
+	 */
 	public void rotateArrayN(int A[], int n_count) {
 		for (int i = 0; i < n_count; i++) {
 			rotateArray(A);
