@@ -16,18 +16,18 @@ package com.algorithms.datastructures.linkedlist;
  */
 public class DoublyLinkedList {
 	
-	Node dummy;
+	ListNode dummy;
 	
 	/*
 	 * Head and tail are really not needed since
 	 * head is dummy.next
 	 * tail is dumy.prev
 	 */
-	Node head;
-	Node tail;
+	ListNode head;
+	ListNode tail;
 	
 	public DoublyLinkedList() {
-		dummy = new Node();
+		dummy = new ListNode();
 		dummy.next = dummy;
 		dummy.prev = dummy;
 	}

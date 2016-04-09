@@ -22,14 +22,14 @@ public class LinkedListOperations {
 	 */
 	public void reverse(SingleLinkedList list) {
 		
-		Node p = list.head;
-		Node q = p.next;
+		ListNode p = list.head;
+		ListNode q = p.next;
 		
 		list.head.next = null;
 		list.tail = p;
 		
 		while (q != null) {
-			Node t = q;
+			ListNode t = q;
 			q = q.next;
 			t.next = p;
 			p = t;
@@ -44,8 +44,8 @@ public class LinkedListOperations {
 	 */
 	public boolean isPalindrome(DoublyLinkedList dlist) {
 		
-		Node p = dlist.head;
-		Node q = dlist.tail;
+		ListNode p = dlist.head;
+		ListNode q = dlist.tail;
 		
 		boolean is_palin = true;
 		while (p != q) {

@@ -6,8 +6,8 @@ package com.algorithms.datastructures.linkedlist;
  */
 public class SingleLinkedList {
 	
-	Node head;
-	Node tail;
+	ListNode head;
+	ListNode tail;
 	
 	/**
 	 * Inserts an element at the head of the list
@@ -16,7 +16,7 @@ public class SingleLinkedList {
 	 * - initiliaze tail to 'u' if tail was uninitialized
 	 */
 	public void push(int x) {
-		Node new_node = new Node(x);
+		ListNode new_node = new ListNode(x);
 		new_node.next = head;
 		head = new_node;
 		
@@ -54,9 +54,9 @@ public class SingleLinkedList {
 	 */
 	public void insert(int x) {
 		if (head == null) {
-			head = tail = new Node(x);
+			head = tail = new ListNode(x);
 		} else {
-			Node n = new Node(x);
+			ListNode n = new ListNode(x);
 			tail.next = n;
 			tail = n;
 		}
@@ -93,7 +93,7 @@ public class SingleLinkedList {
 			head = tail = null;
 			return x;
 		} else {
-			Node iter = head;
+			ListNode iter = head;
 			while (iter.next.next != null) {
 				iter = iter.next;
 			}
@@ -110,7 +110,7 @@ public class SingleLinkedList {
 		}
 		
 		int count = 0;
-		Node iter = this.head;
+		ListNode iter = this.head;
 		while (iter != null) {
 			iter = iter.next;
 			count++;
@@ -124,7 +124,7 @@ public class SingleLinkedList {
 	
 	public void displayList(String loggerString) {
 		StringBuilder sb = new StringBuilder(loggerString).append(" : ");
-		Node iter = head;
+		ListNode iter = head;
 		while (iter != null) {
 			sb.append(iter.x).append(" -> ");
 			iter = iter.next;

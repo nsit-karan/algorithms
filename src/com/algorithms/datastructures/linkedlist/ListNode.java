@@ -10,16 +10,16 @@ package com.algorithms.datastructures.linkedlist;
  *         
  * No get/seters used here to keep the logic simple
  */
-public class Node {
+public class ListNode {
 	public int x;
-	public Node next;
-	public Node prev;
+	public ListNode next;
+	public ListNode prev;
 	
-	public Node(int x) {
+	public ListNode(int x) {
 		this.x = x;
 	}
 
-	public Node() {
+	public ListNode() {
 	}	
 	
 }
