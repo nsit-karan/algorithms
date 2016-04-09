@@ -31,9 +31,6 @@ public class Traversal {
 		}
 	}
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		Operations o = new Operations();
 		
@@ -46,6 +43,11 @@ public class Traversal {
 		
 		Traversal t = new Traversal();
 		t.inorderTreeWalk(tree.head);
+		
+		/*
+		 * expected : false
+		 */
+		System.out.println(new Traversal().search(tree.head, 11) == null);
 
 	}
 
