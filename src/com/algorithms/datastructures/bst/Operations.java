@@ -2,31 +2,31 @@ package com.algorithms.datastructures.bst;
 
 public class Operations {
 	
-	public void insertNode(BinarySearchTree bst, TreeNode new_node) {
-		TreeNode y = null;
+	public void insertNode(BST bst, TreeNode new_node) {
+		TreeNode parent = null;
 		TreeNode ptr = bst.head;
 		
 		while (ptr != null) {
-			y = ptr;
-			if (new_node.x < ptr.x) {
+			parent = ptr;
+			if (new_node.data < ptr.data) {
 				ptr = ptr.left;
 			} else {
 				ptr = ptr.right;
 			}
 		}
 		
-		new_node.parent = y;
+		new_node.parent = parent;
 		
 		/*
 		 * If the tree was empty, initialize the current (which holds the value 'head'
 		 * to new_node as the first node
 		 */
-		if (y == null) {
+		if (parent == null) {
 			bst.head = new_node;
-		} else if (new_node.x < y.x) {
-			y.left = new_node;
+		} else if (new_node.data < parent.data) {
+			parent.left = new_node;
 		} else {
-			y.right = new_node;
+			parent.right = new_node;
 		}
 	}
 
@@ -34,6 +34,8 @@ public class Operations {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		
+		
 	}
 
 }

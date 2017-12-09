@@ -8,7 +8,7 @@ public class Traversal {
 	public void inorderTreeWalk(TreeNode ptr) {
 		if (ptr != null) {
 			inorderTreeWalk(ptr.left);
-			System.out.println(ptr.x);
+			System.out.println(ptr.data);
 			inorderTreeWalk(ptr.right);
 		}
 		
@@ -22,9 +22,9 @@ public class Traversal {
 	}
 	
 	public TreeNode search(TreeNode root, int key) {
-		if (root == null || root.x == key) {
+		if (root == null || root.data == key) {
 			return root;
-		} else if (key < root.x) {
+		} else if (key < root.data) {
 			return search(root.left, key);
 		} else {
 			return search(root.right, key);
@@ -34,7 +34,7 @@ public class Traversal {
 	public static void main(String[] args) {
 		Operations o = new Operations();
 		
-		BinarySearchTree tree = new BinarySearchTree();
+		BST tree = new BST();
 		
 		o.insertNode(tree, new TreeNode(100));
 		o.insertNode(tree, new TreeNode(150));

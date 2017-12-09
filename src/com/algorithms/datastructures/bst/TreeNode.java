@@ -2,7 +2,7 @@ package com.algorithms.datastructures.bst;
 
 public class TreeNode {
 	
-	int x;
+	int data;
 	TreeNode left;
 	TreeNode right;
 	
@@ -11,8 +11,8 @@ public class TreeNode {
 	 */
 	TreeNode parent;
 
-	public TreeNode(int x) {
-		this.x = x;
+	public TreeNode(int data) {
+		this.data = data;
 	}
 	
 }

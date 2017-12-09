@@ -1,11 +1,9 @@
 package com.algorithms.datastructures.bst;
 
-public class BinarySearchTree {
+public class BST {
 	
 	TreeNode head;
 	
-	
-
 	/**
 	 * @param args
 	 */

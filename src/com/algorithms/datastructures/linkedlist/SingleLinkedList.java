@@ -136,7 +136,7 @@ public class SingleLinkedList {
 		if (!isEmpty()) {
 			sb.delete(sb.toString().length() - 4, sb.toString().length());
 		}
-		System.out.printf("%s | (size = %d)\n", sb.toString(), this.size());
+		System.out.format("%s | (size = %d)\n", sb.toString(), this.size());
 	}
 
 	/*
