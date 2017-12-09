@@ -1,7 +1,17 @@
 package com.algorithms.datastructures.bst;
 
 public class Traversal {
+	
+	public TreeNode findMax(TreeNode ptr) {
+		TreeNode parent = ptr;
+		while (ptr != null) {
+			parent = ptr;
+			ptr = ptr.right;
+		}
 		
+		return parent;
+	}
+	
 	/*
 	 * complexity O(n) where the no of nodes is n
 	 */
@@ -40,6 +50,8 @@ public class Traversal {
 		o.insertNode(tree, new TreeNode(150));
 		o.insertNode(tree, new TreeNode(50));
 		o.insertNode(tree, new TreeNode(30));
+		o.insertNode(tree, new TreeNode(5));
+		o.insertNode(tree, new TreeNode(200));
 		
 		Traversal t = new Traversal();
 		t.inorderTreeWalk(tree.head);
@@ -48,6 +60,11 @@ public class Traversal {
 		 * expected : false
 		 */
 		System.out.println(new Traversal().search(tree.head, 11) == null);
+		
+		/*
+		 * FindMax : 200
+		 */
+		System.out.println("max element is " + new Traversal().findMax(tree.head).data);
 
 	}
 
