@@ -16,7 +16,11 @@ public class Traversal {
 	 * Find the element which is 'just' larger than ptr.
 	 * Approach:
 	 * - go on going left down the subtree rooted at ptr.right
-	 * - stop when the node no longer has a left-child. That is the node which is just larger than ptr but only just :) 
+	 * - stop when the node no longer has a left-child. That is the node which is just larger than ptr but only just :)
+	 * 
+	 * But, if ptr doens't have a right sub-tree, then we need to go up to find the in-order successor.
+	 * 
+	 * TODO : this logic needs to be tweaked in case the parent pointer is not available. In that case, TODO ??
 	 */
 	public TreeNode findInOrderSuccessor(TreeNode ptr) {
 
@@ -29,6 +33,27 @@ public class Traversal {
 		}
 		
 		return current;
+	}
+	
+	/*
+	 * TODO : cross-check this code and run some test-case on it
+	 */
+	public TreeNode findInOrderPredecessor(TreeNode ptr) {
+		
+		if (ptr.left != null) {
+			return ptr.left;
+		} else if (ptr.parent == null) {
+			/*
+			 * this is the case when root is hit and no predecessor is found
+			 */
+			return null;
+		} else if (ptr.parent.right == ptr) {
+			return ptr.parent;
+		} else {
+			ptr = ptr.parent;
+		}
+		
+		return null;
 	}
 	
 	public int height(TreeNode ptr) {
