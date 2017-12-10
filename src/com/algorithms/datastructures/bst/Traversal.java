@@ -31,6 +31,16 @@ public class Traversal {
 		return current;
 	}
 	
+	public int height(TreeNode ptr) {
+		if (ptr == null) {
+			return 0;
+		}
+		
+		int left_h = 1 + height(ptr.left);
+		int right_h = 1 + height(ptr.right);
+		return Math.max(left_h, right_h);
+	}
+	
 	/*
 	 * complexity O(n) where the no of nodes is n
 	 */
@@ -65,6 +75,20 @@ public class Traversal {
 		
 		BST tree = new BST();
 		
+		/*
+		 * Tree is of the format:
+		 * 
+		 *                      100
+		 *                   /         \
+		 *            50                     150
+		 *          /                            \
+		 *       30                               200
+		 *    /                                   /
+		 *   5                                  175
+		 *                                         \   
+		 *                                            180
+		 *                                       
+		 */
 		o.insertNode(tree, new TreeNode(100));
 		o.insertNode(tree, new TreeNode(150));
 		o.insertNode(tree, new TreeNode(50));
@@ -93,6 +117,11 @@ public class Traversal {
 		 */
 		System.out.println("in order successor of 100 is " + new Traversal().findInOrderSuccessor(tree.head).data);
 		System.out.println("in order successor of 150 is " + new Traversal().findInOrderSuccessor(tree.head.right).data);
+		
+		/*
+		 * based on the nodes inserted, height is 4
+		 */
+		System.out.println("Height of the tree is " + new Traversal().height(tree.head));
 
 	}
 
