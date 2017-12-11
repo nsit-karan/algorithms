@@ -77,6 +77,16 @@ public class Traversal {
 		}
 		
 	}
+
+	
+	public void preOrderTreeWalk(TreeNode ptr) {
+		if (ptr != null) {
+			System.out.println(ptr.data);
+			preOrderTreeWalk(ptr.left);
+			preOrderTreeWalk(ptr.right);
+		}
+	}
+
 	
 	/*
 	 * Using a stack to simulate recursion
@@ -148,6 +158,10 @@ public class Traversal {
 		 */
 		System.out.println("Height of the tree is " + new Traversal().height(tree.head));
 
+		/*
+		 * Pre-order traversal
+		 */
+		new Traversal().preOrderTreeWalk(tree.head);
 	}
 
 }
