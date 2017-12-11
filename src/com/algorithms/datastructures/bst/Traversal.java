@@ -78,12 +78,19 @@ public class Traversal {
 		
 	}
 
-	
 	public void preOrderTreeWalk(TreeNode ptr) {
 		if (ptr != null) {
 			System.out.println(ptr.data);
 			preOrderTreeWalk(ptr.left);
 			preOrderTreeWalk(ptr.right);
+		}
+	}
+	
+	public void postOrderTraversal(TreeNode ptr) {
+		if (ptr != null) {
+			postOrderTraversal(ptr.left);
+			postOrderTraversal(ptr.right);
+			System.out.println(ptr.data);
 		}
 	}
 
@@ -131,9 +138,21 @@ public class Traversal {
 		o.insertNode(tree, new TreeNode(5));
 		o.insertNode(tree, new TreeNode(200));
 		o.insertNode(tree, new TreeNode(175));
+		o.insertNode(tree, new TreeNode(180));
 		
-		Traversal t = new Traversal();
+		/*
+		 * Traversals
+		 */
+		Traversal t = new Traversal();		
+		System.out.println("-----in-order----- : ");
 		t.inorderTreeWalk(tree.head);
+		
+		System.out.println("----pre-order----- : ");
+		t.preOrderTreeWalk(tree.head);
+		
+		System.out.println("---post-order---- :");
+		t.postOrderTraversal(tree.head);
+
 		
 		/*
 		 * expected : false
@@ -157,11 +176,6 @@ public class Traversal {
 		 * based on the nodes inserted, height is 4
 		 */
 		System.out.println("Height of the tree is " + new Traversal().height(tree.head));
-
-		/*
-		 * Pre-order traversal
-		 */
-		new Traversal().preOrderTreeWalk(tree.head);
 	}
 
 }
